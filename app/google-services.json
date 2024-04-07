@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "788730197247",
+    "project_id": "health-app-3b32f",
+    "storage_bucket": "health-app-3b32f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:788730197247:android:5a8f89964b86481c65c8ca",
+        "android_client_info": {
+          "package_name": "com.azeroth.healthapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzVWcYL9NCR3Im057cpUPcqEo02lNL6-U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
