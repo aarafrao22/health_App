@@ -2,4 +2,5 @@
 <resources>
     <string name="your_health_companion_app">Your Health Companion App</string>
     <string name="fitfusion">FitFusion</string>
+    <string name="activity_ntracking">Activity\nTracking</string>
 </resources>
