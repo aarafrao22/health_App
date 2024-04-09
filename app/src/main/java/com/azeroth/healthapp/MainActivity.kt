@@ -34,18 +34,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             // Handle click events for each card view
             R.id.card_act -> {
                 // Handle click for cardAct
-            }
-
-            R.id.card_calorie -> {
-                // Handle click for cardCalorie
-            }
-
-            R.id.card_distance -> {
-                // Handle click for cardDistance
-            }
-
-            R.id.card_steps -> {
-                // Handle click for cardSteps
+                startActivity(Intent(this@MainActivity, TrackingActivity::class.java))
             }
 
             R.id.card_tips -> {

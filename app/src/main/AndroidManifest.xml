@@ -18,6 +18,11 @@
         <activity
             android:name=".TipsActivity"
             android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBw8BeBoVk25ZgZY5w2WyXNd4MLTX7Of3Y" />
+
         <activity
             android:name=".SplashActivity"
             android:exported="true">
