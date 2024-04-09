@@ -15,30 +15,30 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 
+@Suppress("DEPRECATION")
 class ChartFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_glucose, container, false)
+        val view = inflater.inflate(R.layout.fragment_chart, container, false)
         drawLineChart(view)
-
         return view
     }
 
     private fun drawLineChart(view: View) {
         val lineChart: LineChart = view.findViewById(R.id.lineChart)
 
-        lineChart.setDrawGridBackground(false);
-        lineChart.xAxis.position = XAxis.XAxisPosition.BOTTOM;
+        lineChart.setDrawGridBackground(false)
+        lineChart.xAxis.position = XAxis.XAxisPosition.BOTTOM
 
-        lineChart.setGridBackgroundColor(Color.WHITE);
-        lineChart.setTouchEnabled(true);
+        lineChart.setGridBackgroundColor(Color.WHITE)
+        lineChart.setTouchEnabled(true)
         lineChart.setScaleEnabled(false)
-        lineChart.setPinchZoom(true);
-        lineChart.highlightValue(null);
-        lineChart.isDoubleTapToZoomEnabled = false;
+        lineChart.setPinchZoom(true)
+        lineChart.highlightValue(null)
+        lineChart.isDoubleTapToZoomEnabled = false
 
         lineChart.setPinchZoom(false)
         val lineEntries: List<Entry> = getDataSet()
@@ -47,7 +47,7 @@ class ChartFragment : Fragment() {
         lineDataSet.lineWidth = 3F
         lineDataSet.setDrawValues(false)
         lineDataSet.color = Color.CYAN
-        lineDataSet.mode = LineDataSet.Mode.CUBIC_BEZIER;
+        lineDataSet.mode = LineDataSet.Mode.CUBIC_BEZIER
         lineDataSet.setDrawCircles(false)
         lineDataSet.setDrawHighlightIndicators(true)
         lineDataSet.isHighlightEnabled = true
@@ -74,7 +74,6 @@ class ChartFragment : Fragment() {
         lineData.setValueTextColor(Color.parseColor("#ebecf0"))
         lineChart.xAxis.textColor = R.color.blue
 
-
         lineChart.animateY(1000)
         lineChart.data = lineData
 
@@ -87,22 +86,21 @@ class ChartFragment : Fragment() {
         xAxis.axisMinimum = 0F
         xAxis.axisMaximum = 24F
 
-
         lineChart.axisLeft.setCenterAxisLabels(true)
-        var xVals: MutableList<String> = arrayListOf()
+        val xValues: MutableList<String> = arrayListOf()
 
-        xVals.add("  Mo  ");
-        xVals.add("  Tu  ");
-        xVals.add("  We  ");
-        xVals.add("  Th  ");
-        xVals.add("  Fr  ");
-        xVals.add("  Sa  ");
+        xValues.add("  Mo  ")
+        xValues.add("  Tu  ")
+        xValues.add("  We  ")
+        xValues.add("  Th  ")
+        xValues.add("  Fr  ")
+        xValues.add("  Sa  ")
 
-        xAxis.setCenterAxisLabels(false);
-        xAxis.setDrawGridLines(false);
-        xAxis.axisMaximum = 6f;
-        xAxis.position = XAxis.XAxisPosition.BOTTOM;
-        xAxis.valueFormatter = IndexAxisValueFormatter(xVals);
+        xAxis.setCenterAxisLabels(false)
+        xAxis.setDrawGridLines(false)
+        xAxis.axisMaximum = 6f
+        xAxis.position = XAxis.XAxisPosition.BOTTOM
+        xAxis.valueFormatter = IndexAxisValueFormatter(xValues)
 
         lineChart.axisRight.isEnabled = false
         lineChart.invalidate()
