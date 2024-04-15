@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="your_health_companion_app">Your Health Companion App</string>
-    <string name="fitfusion">FitFusion</string>
+    <string name="your_health_companion_app">Health Companion</string>
+    <string name="fitfusion">Smart</string>
     <string name="activity_ntracking">Activity\nTracking</string>
 </resources>
