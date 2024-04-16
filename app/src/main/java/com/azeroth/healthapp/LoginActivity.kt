@@ -6,12 +6,10 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.azeroth.healthapp.databinding.ActivityLoginBinding
-import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
@@ -19,13 +17,12 @@ import com.google.firebase.auth.FirebaseUser
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-    private var edEmail: TextInputEditText? = null
-    private var edPassword: TextInputEditText? = null
-    private var btnSignIn: Button? = null
+
     private var firebaseAuth: FirebaseAuth? = null
     private var forgotPassword: TextView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initViews()
@@ -46,13 +43,12 @@ class LoginActivity : AppCompatActivity() {
 
             override fun afterTextChanged(s: Editable) {}
         })
-//        forgotPassword!!.setOnClickListener { }
         binding.btnLogin.setOnClickListener { checkEmailAndPassword() }
     }
 
 
-    private fun sendToMainActivity(s: String) {
-        startActivity(Intent(this@LoginActivity, MainActivity::class.java).putExtra("name", s))
+    private fun sendToMainActivity() {
+        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
         finish()
     }
 
@@ -68,8 +64,10 @@ class LoginActivity : AppCompatActivity() {
                     ?.addOnCompleteListener { task ->
                         val user: FirebaseUser? = task.result.user
                         if (task.isSuccessful) {
+                            Toast.makeText(this@LoginActivity, "Login Success", Toast.LENGTH_SHORT)
+                                .show()
                             if (user != null) {
-                                user.displayName?.let { sendToMainActivity(it) }
+                                sendToMainActivity()
                             }
                         } else {
                             disable()
@@ -87,18 +85,18 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun enable() {
-        btnSignIn!!.setEnabled(true)
-        btnSignIn!!.setTextColor(Color.rgb(255, 255, 255))
+        binding.btnLogin.setEnabled(true)
+        binding.btnLogin.setTextColor(Color.rgb(255, 255, 255))
     }
 
     private fun disable() {
-        btnSignIn!!.setEnabled(false)
-        btnSignIn!!.setTextColor(Color.argb(50, 255, 255, 255))
+        binding.btnLogin!!.setEnabled(false)
+        binding.btnLogin!!.setTextColor(Color.argb(50, 255, 255, 255))
     }
 
     private fun checkInputs() {
-        if (!TextUtils.isEmpty(edEmail!!.getText())) {
-            if (!TextUtils.isEmpty(edPassword!!.getText())) {
+        if (!TextUtils.isEmpty(binding.edEmail.getText())) {
+            if (!TextUtils.isEmpty(binding.edContact.getText())) {
                 enable()
             } else {
                 disable()

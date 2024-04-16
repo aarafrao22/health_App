@@ -57,15 +57,17 @@ class TrackingActivity : AppCompatActivity(), OnMapReadyCallback, LocationListen
         retrieveValue(this@TrackingActivity)
 
         countNewSteps()
+        getLocationWithGPS()
+        getCurrentLocation()
 
     }
 
     private fun calculateDistance() {
-        TODO("Not yet implemented")
+
     }
 
     private fun calculateCalorie() {
-        TODO("Not yet implemented")
+
     }
 
     private fun countNewSteps() {
