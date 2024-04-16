@@ -48,7 +48,7 @@ class LoginActivity : AppCompatActivity() {
 
 
     private fun sendToMainActivity() {
-        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+        startActivity(Intent(this@LoginActivity, BmiActivity::class.java))
         finish()
     }
 

@@ -239,5 +239,6 @@ class TrackingActivity : AppCompatActivity(), OnMapReadyCallback, LocationListen
 //                updateLandmarkMarker()
 //            }
 //        }
+
     }
 }
