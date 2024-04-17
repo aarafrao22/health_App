@@ -50,6 +50,8 @@ dependencies {
     implementation(libs.firebase.database)
     implementation(libs.play.services.maps)
     implementation("com.github.PhilJay:MPAndroidChart:v3.0.3")
+    implementation("androidx.work:work-runtime-ktx:2.8.1")
+
     implementation(libs.firebase.auth.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

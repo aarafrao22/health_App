@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.azeroth.healthapp.databinding.ActivityMainBinding
+import java.util.concurrent.TimeUnit
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -23,6 +24,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         // Initialize click listeners
         initClicks()
+        val workRequest = OneTimeWorkRequestBuilder<NotificationWorker>()
+            .setInitialDelay(24, TimeUnit.HOURS) // Change this delay as needed
+            .build()
+
+
+        WorkManager.getInstance(this).enqueue(workRequest)
         getTodayData()
     }
 
