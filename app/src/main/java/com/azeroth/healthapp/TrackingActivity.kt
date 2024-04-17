@@ -16,8 +16,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.azeroth.healthapp.databinding.ActivityTrackingBinding
 import com.azeroth.healthapp.fragments.ChartFragment
-import com.azeroth.healthapp.utils.DailyDataManager
-import com.azeroth.healthapp.utils.DailyDataManager.getValueForToday
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
@@ -36,6 +34,7 @@ class TrackingActivity : AppCompatActivity(), OnMapReadyCallback, LocationListen
     private val locationPermissionCode = 2
     private var currentLatLng: LatLng? = null
     private var stepCount = 0
+
     private val polyList: MutableList<LatLng> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,7 +51,7 @@ class TrackingActivity : AppCompatActivity(), OnMapReadyCallback, LocationListen
 
         setFragment(ChartFragment())
         stepsToday = getValueForToday(this@TrackingActivity, 0)
-        calculateDistance()
+//        calculateDistance()
 
         retrieveValue(this@TrackingActivity)
 
@@ -62,8 +61,9 @@ class TrackingActivity : AppCompatActivity(), OnMapReadyCallback, LocationListen
 
     }
 
-    private fun calculateDistance() {
+    private fun getValueForToday(constext: Context, i: Int): Int {
 
+        return 0
     }
 
     private fun calculateCalorie() {
@@ -74,14 +74,16 @@ class TrackingActivity : AppCompatActivity(), OnMapReadyCallback, LocationListen
         stepsToday++
     }
 
+
     override fun onStop() {
         saveStepsValue(stepsToday, this@TrackingActivity)
+
         super.onStop()
     }
 
     private fun retrieveValue(context: Context) {
         // Retrieve values for the last 6 days
-        val valuesForLast6Days = DailyDataManager.getValuesForLastNDays(context, 7)
+//        val valuesForLast6Days = DailyDataManager.getValuesForLastNDays(context, 7)
 
     }
 
@@ -145,7 +147,7 @@ class TrackingActivity : AppCompatActivity(), OnMapReadyCallback, LocationListen
     }
 
     private fun saveStepsValue(steps: Int, context: Context) {
-        DailyDataManager.saveValueForToday(context, steps)
+//        DailyDataManager.saveValueForToday(context, steps)
     }
 
     private fun setFragment(fragment: Fragment) {

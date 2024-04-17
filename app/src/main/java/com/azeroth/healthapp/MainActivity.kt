@@ -1,5 +1,6 @@
 package com.azeroth.healthapp
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -8,6 +9,10 @@ import com.azeroth.healthapp.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
+
+    private var steps: Int = 0
+    private var calorie: Int = 0
+    private var distance: Int = 0
 
     private lateinit var binding: ActivityMainBinding
 
@@ -18,6 +23,34 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         // Initialize click listeners
         initClicks()
+        getTodayData()
+    }
+
+
+    private fun getTodayData() {
+        // TODO: getDataFromFirebase
+
+        steps = 0
+        calorie = 0
+        distance = 0
+
+
+        val content = "Hey, check out my progress for today:\n" +
+                "Steps walked: $steps\n" +
+                "Calories burned: $calorie\n" +
+                "Distance traveled: $distance km"
+
+        binding.imgShare.setOnClickListener {
+            shareText(this@MainActivity, content)
+        }
+    }
+
+
+    private fun shareText(context: Context, text: String) {
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_TEXT, text)
+        context.startActivity(Intent.createChooser(intent, "Share via"))
     }
 
     private fun initClicks() {
