@@ -53,6 +53,7 @@ dependencies {
     implementation("androidx.work:work-runtime-ktx:2.8.1")
 
     implementation(libs.firebase.auth.ktx)
+    implementation(libs.play.services.location)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

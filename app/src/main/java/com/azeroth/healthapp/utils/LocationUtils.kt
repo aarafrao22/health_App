@@ -5,7 +5,18 @@ import kotlin.math.pow
 
 object LocationUtils {
 
+    var stepsCount = 0
+
     private const val EARTH_RADIUS_KM = 6371.0 // Radius of the Earth in kilometers
+
+    fun countDistance(): Double {
+        return 0.1 * stepsCount
+    }
+
+    fun countCalorie(): Double {
+        return 0.7 * stepsCount
+    }
+
 
     fun calculatePolylineDistance(polyList: List<LatLng>): Double {
         var totalDistance = 0.0
@@ -27,7 +38,7 @@ object LocationUtils {
         lat1: Double,
         lon1: Double,
         lat2: Double,
-        lon2: Double
+        lon2: Double,
     ): Double {
         // Convert latitude and longitude from degrees to radians
         val lat1Rad = Math.toRadians(lat1)

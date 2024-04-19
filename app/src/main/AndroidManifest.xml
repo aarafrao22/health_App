@@ -35,7 +35,7 @@
             android:value="AIzaSyBw8BeBoVk25ZgZY5w2WyXNd4MLTX7Of3Y" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,7 +44,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SplashActivity"
+            android:name=".MainActivity"
             android:exported="false" />
     </application>
 

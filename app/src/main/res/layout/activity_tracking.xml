@@ -122,6 +122,7 @@
                     app:tint="@color/dark_grey" />
 
                 <TextView
+                    android:id="@+id/txtCaloriesCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -151,6 +152,7 @@
                     app:tint="@color/dark_grey" />
 
                 <TextView
+                    android:id="@+id/txtDistanceCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
